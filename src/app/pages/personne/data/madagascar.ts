@@ -270,5 +270,4 @@ const dataMada: DataMada = {
     }
   ]
 }
-
 export default dataMada;

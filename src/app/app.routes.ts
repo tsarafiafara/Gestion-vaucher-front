@@ -13,6 +13,7 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'personne', component: PersonneComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'vouchers', component: VoucherComponent },
       { path: 'institution', component: InstitutionComponent },
       { path: '', redirectTo: '/vouchers', pathMatch: 'full' }
