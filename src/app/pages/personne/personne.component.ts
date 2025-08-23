@@ -74,20 +74,24 @@ export class PersonneComponent implements OnInit {
   savePersonne(): void {
     if (this.isEditMode && this.personneForm.id) {
       this.personneService.update(this.personneForm.id, this.personneForm).subscribe(() => {
-        this.resetForm();
+        this.closeModal();
         this.loadPersonnes();
       });
     } else {
       this.personneService.create(this.personneForm).subscribe(() => {
-        this.resetForm();
+        this.closeModal();
         this.loadPersonnes();
       });
     }
   }
 
+  closeModal(): void {
+    this.showModal = false;
+    this.resetForm();
+  }
+
   onSubmit(): void {
     this.savePersonne();
-    this.showModal = false;
   }
 
   editPersonne(p: Personne): void {
