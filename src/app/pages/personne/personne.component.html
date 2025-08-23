@@ -81,32 +81,72 @@
   </div>
 
   <!-- Table existante -->
-  <table class="personne-table">
-    <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Date Naissance</th>
-        <th>Sexe</th>
-        <th>ID Établissement</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of personnes">
-        <td>{{ p.nom }}</td>
-        <td>{{ p.prenom }}</td>
-        <td>{{ p.dateNaissance | date:'dd/MM/yyyy' }}</td>
-
-        <td>{{ p.sexe }}</td>
-        <td>{{ p.etablissementSanitaireId }}</td>
-        <td>
-          <button (click)="editPersonne(p)">✏️  Modifier</button>
-          <button *ngIf="p.id !== undefined" (click)="deletePersonne(p.id)">🗑️ Supprimer</button>
-
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="personne-table">
+      <thead>
+        <tr>
+          <th>
+            <div class="th-content">
+              <i class="fas fa-user"></i>
+              <span>Nom</span>
+            </div>
+          </th>
+          <th>
+            <div class="th-content">
+              <i class="fas fa-user-tag"></i>
+              <span>Prénom</span>
+            </div>
+          </th>
+          <th>
+            <div class="th-content">
+              <i class="fas fa-calendar-alt"></i>
+              <span>Date Naissance</span>
+            </div>
+          </th>
+          <th>
+            <div class="th-content">
+              <i class="fas fa-venus-mars"></i>
+              <span>Sexe</span>
+            </div>
+          </th>
+          <th>
+            <div class="th-content">
+              <i class="fas fa-hospital"></i>
+              <span>Établissement</span>
+            </div>
+          </th>
+          <th>
+            <div class="th-content">
+              <i class="fas fa-cogs"></i>
+              <span>Actions</span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of personnes">
+          <td>{{ p.nom }}</td>
+          <td>{{ p.prenom }}</td>
+          <td>{{ p.dateNaissance | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <span class="gender-badge" [class.male]="p.sexe === 'M'" [class.female]="p.sexe === 'F'">
+              {{ p.sexe === 'M' ? 'Masculin' : 'Féminin' }}
+            </span>
+          </td>
+          <td>{{ p.etablissementSanitaireId }}</td>
+          <td class="actions-cell">
+            <button class="action-btn edit" (click)="editPersonne(p)" title="Modifier">
+              <i class="fas fa-edit"></i>
+              <span>Modifier</span>
+            </button>
+            <button class="action-btn delete" *ngIf="p.id !== undefined" (click)="deletePersonne(p.id)" title="Supprimer">
+              <i class="fas fa-trash-alt"></i>
+              <span>Supprimer</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 

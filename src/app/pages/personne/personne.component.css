@@ -46,22 +46,67 @@ button:hover {
   background: #1565c0;
 }
 
-.personne-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #000;
+.table-container {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 2rem;
 }
 
-.personne-table th, .personne-table td {
-  border: 1px solid #000;
-  padding: 20px;
-  text-align: center;
+.personne-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
 }
 
 .personne-table th {
-  background: #1976d2;
-  color: white;
+  background: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #e9ecef;
 }
+
+.th-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.th-content i {
+  color: #27ae60;
+}
+
+.personne-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  color: #2c3e50;
+}
+
+.personne-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.gender-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.gender-badge.male {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.gender-badge.female {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
 .actions {
   margin-bottom: 10px;
 }
@@ -173,5 +218,55 @@ button:hover {
   padding: 0;
   border: none;
   background: none;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.action-btn.edit {
+  background-color: #3498db;
+  color: white;
+  border: 1px solid #2980b9;
+}
+
+.action-btn.edit:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.action-btn.delete {
+  background-color: #e74c3c;
+  color: white;
+  border: 1px solid #c0392b;
+}
+
+.action-btn.delete:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.action-btn i {
+  font-size: 1rem;
 }
 
