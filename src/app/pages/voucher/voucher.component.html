@@ -1,0 +1,47 @@
+<div style="text-align: center;">
+  <strong>CREATION D'UN VOUCHER</strong>
+</div>
+
+<form class="voucher-form" (ngSubmit)="saveVoucher()">
+
+  <!-- Personne liée -->
+  <div class="form-group">
+    <label>Bénéficiaire :</label>
+    <select [(ngModel)]="voucherForm.personneId" name="personneId" required>
+      <option value="">-- Sélectionnez une personne --</option>
+      <option *ngFor="let pers of personnes" [value]="pers.id">
+        {{ pers.nom }} {{ pers.prenom }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Date -->
+  <div class="form-group">
+    <label>Date du Voucher :</label>
+    <input type="date" [(ngModel)]="voucherForm.dateVoucher" name="dateVoucher" required />
+  </div>
+
+  <!-- Médicaments -->
+  <div class="form-group">
+    <label>Médicaments :</label>
+    <div *ngFor="let med of voucherForm.medicaments; let i = index" class="medicament-item">
+      <input type="text" [(ngModel)]="voucherForm.medicaments[i].nom" name="nom{{i}}" placeholder="Nom médicament" required />
+      <input type="number" [(ngModel)]="voucherForm.medicaments[i].quantite" name="quantite{{i}}" placeholder="Quantité" required />
+      <input type="number" [(ngModel)]="voucherForm.medicaments[i].prix" name="prix{{i}}" placeholder="Prix unitaire" required />
+      <button type="button" (click)="removeMedicament(i)">❌</button>
+    </div>
+    <button type="button" (click)="addMedicament()">➕ Ajouter un médicament</button>
+  </div>
+
+  <!-- Prix total -->
+  <div class="form-group">
+    <label>Prix Total :</label>
+    <strong>{{ calculerTotal() }} Ar</strong>
+  </div>
+
+  <!-- Bouton -->
+  <div class="form-group">
+    <button type="submit">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
+  </div>
+</form>
+

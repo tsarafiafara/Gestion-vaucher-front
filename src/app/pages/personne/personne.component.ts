@@ -1,0 +1,381 @@
+import { Component, OnInit } from '@angular/core';
+import { PersonneService } from './personne.service';
+import { Personne } from './personne.model';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+@Component({
+  selector: 'app-personne',
+  standalone: true,
+  imports: [FormsModule, CommonModule, HttpClientModule],
+  templateUrl: './personne.component.html',
+  styleUrl: './personne.component.css'
+})
+export class PersonneComponent implements OnInit {
+  personnes: Personne[] = [];
+  personneForm: Personne = {
+    nom: '',
+    prenom: '',
+    dateNaissance: '',
+    sexe: '',
+    etablissementSanitaireId: 0
+  };
+etablissements: any[] = [];
+  isEditMode = false; 
+
+etablissement: {
+  nom: string;
+  region: string;
+  district: string;
+  commune: string;
+  type: string;
+} = {
+  nom: '',
+  region: '',
+  district: '',
+  commune: '',
+  type: ''
+};
+  regions: any = {
+  pays: "Madagascar",
+  version: "2025-08",
+  regions: [
+    {
+      nom: "Analamanga",
+      districts: [
+        {
+          nom: "Antananarivo I",
+          communes: ["Analakely", "Isotry", "Mahamasina"]
+        },
+        {
+          nom: "Antananarivo II",
+          communes: ["Ambohidratrimo", "Ivato", "Talatamaty"]
+        },
+        {
+          nom: "Antananarivo Atsimondrano",
+          communes: ["Andoharanofotsy", "Anosizato", "Anosibe"]
+        },
+        {
+          nom: "Antananarivo Avaradrano",
+          communes: ["Anosibe", "Anosizato", "Andoharanofotsy"]
+        },
+        {
+          nom: "Anjozorobe",
+          communes: ["Anjozorobe", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Ambohidratrimo",
+          communes: ["Ambohidratrimo", "Andoharanofotsy", "Anosizato"]
+        },
+        {
+          nom: "Ankazobe",
+          communes: ["Ankazobe", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Andramasina",
+          communes: ["Andramasina", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Manjakandriana",
+          communes: ["Manjakandriana", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Bongolava",
+      "districts": [
+        {
+          nom: "Tsiroanomandidy",
+          communes: ["Tsiroanomandidy", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Fenoarivobe",
+          communes: ["Fenoarivobe", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Itasy",
+      "districts": [
+        {
+          nom: "Arivonimamo",
+          communes: ["Arivonimamo", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Miarinarivo",
+          communes: ["Miarinarivo", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Soavinandriana",
+          communes: ["Soavinandriana", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Vakinankaratra",
+      "districts": [
+        {
+          nom: "Antsirabe I",
+          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+        },
+        {
+          nom: "Antsirabe II",
+          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+        },
+        {
+          nom: "Betafo",
+          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+        },
+        {
+          nom: "Faratsiho",
+          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+        },
+        {
+          nom: "Mandoto",
+          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+        }
+      ]
+    },
+    {
+      nom: "Diana",
+      "districts": [
+        {
+          nom: "Ambanja",
+          communes: ["Ambanja", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Ambilobe",
+          communes: ["Ambilobe", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Antsiranana I",
+          communes: ["Antsiranana", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Antsiranana II",
+          communes: ["Antsiranana", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Nosy Be",
+          communes: ["Nosy Be", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Sava",
+      "districts": [
+        {
+          nom: "Andapa",
+          communes: ["Andapa", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Antalaha",
+          communes: ["Antalaha", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Sambava",
+          communes: ["Sambava", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Vohemar",
+          communes: ["Vohemar", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Amoron'i Mania",
+      "districts": [
+        {
+          nom: "Ambatofinandrahana",
+          communes: ["Ambatofinandrahana", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Ambositra",
+          communes: ["Ambositra", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Fandriana",
+          communes: ["Fandriana", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Manandriana",
+          communes: ["Manandriana", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Haute Matsiatra",
+      "districts": [
+        {
+          nom: "Ambalavao",
+          communes: ["Ambalavao", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Ambohimahasoa",
+          communes: ["Ambohimahasoa", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Fianarantsoa",
+          communes: ["Fianarantsoa", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Isandra",
+          communes: ["Isandra", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Ikalamavony",
+          communes: ["Ikalamavony", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Vohibato",
+          communes: ["Vohibato", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Lalangina",
+          communes: ["Lalangina", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Ihorombe",
+      "districts": [
+        {
+          nom: "Iakora",
+          communes: ["Iakora", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Ihosy",
+          communes: ["Ihosy", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Ivohibe",
+          communes: ["Ivohibe", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Vatovavy",
+      "districts": [
+        {
+          nom: "Ifanadiana",
+          communes: ["Ifanadiana", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Fitovinany",
+      "districts": [
+        {
+          nom: "Ikongo",
+          communes: ["Ikongo", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Manakara",
+          communes: ["Manakara", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Mananjary",
+          communes: ["Mananjary", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Nosy Varika",
+          communes: ["Nosy Varika", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Vohipeno",
+          communes: ["Vohipeno", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Anosy",
+      "districts": [
+        {
+          nom: "Amboasary Sud",
+          communes: ["Amboasary Sud", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Betroka",
+          communes: ["Betroka", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Taolanaro",
+          communes: ["Taolanaro", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    }
+  ]
+}
+  selectedRegion: any = null;
+  selectedDistrict: any = null;
+  selectedCommune: string = '';
+
+  
+  constructor(private personneService: PersonneService,private http:HttpClient) {
+  	this.loadRegions();
+  }
+
+  ngOnInit(): void {
+    this.loadPersonnes();
+    this.loadRegions();
+  }
+  
+loadRegions(): void {
+    this.http.get<any>('../../../assets/data/madagascar.json').subscribe(data => {
+      this.regions = data.regions;
+      console.log('LIste region:', data.regions)
+    });
+  }
+
+  onRegionChange() {
+    this.selectedDistrict = null;
+    this.selectedCommune = '';
+  }
+
+  onDistrictChange() {
+    this.selectedCommune = '';
+  }
+  loadPersonnes(): void {
+    this.personneService.getAll().subscribe(data => this.personnes = data);
+  }
+  refresh(): void {
+   console.log(" 🔄 Bouton actualiser cliqué !");
+    this.loadPersonnes();
+  }
+
+  savePersonne(): void {
+    if (this.isEditMode && this.personneForm.id) {
+      this.personneService.update(this.personneForm.id, this.personneForm).subscribe(() => {
+        this.resetForm();
+        this.loadPersonnes();
+      });
+    } else {
+      this.personneService.create(this.personneForm).subscribe(() => {  
+       this.resetForm();
+       this.loadPersonnes();
+      });
+    }
+  }
+
+  editPersonne(p: Personne): void {
+    this.personneForm = { ...p };
+    this.isEditMode = true;
+  }
+
+  deletePersonne(id: number): void {
+    this.personneService.delete(id).subscribe(() => this.loadPersonnes());
+  }
+
+  resetForm(): void {
+    this.personneForm = {
+      nom: '',
+      prenom: '',
+      dateNaissance: '',
+      sexe: '',
+      etablissementSanitaireId: 0
+    };
+    this.isEditMode = false;
+  }
+}
+
