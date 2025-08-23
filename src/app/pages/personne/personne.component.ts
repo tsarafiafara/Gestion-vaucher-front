@@ -26,6 +26,7 @@ export class PersonneComponent implements OnInit {
   
   etablissements: any[] = [];
   isEditMode = false;
+  showModal = false;
 
   etablissement = {
     nom: '',
@@ -84,9 +85,15 @@ export class PersonneComponent implements OnInit {
     }
   }
 
+  onSubmit(): void {
+    this.savePersonne();
+    this.showModal = false;
+  }
+
   editPersonne(p: Personne): void {
     this.personneForm = { ...p };
     this.isEditMode = true;
+    this.showModal = true;
   }
 
   deletePersonne(id: number): void {
