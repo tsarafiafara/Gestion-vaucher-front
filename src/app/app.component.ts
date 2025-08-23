@@ -10,10 +10,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-logout(): void {
-  window.localStorage.clear();
-  window.location.href = '/';
-}
+  sidebarOpen = true;
+
+  toggleSidebar(): void {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
+
+  logout(): void {
+    window.localStorage.clear();
+    window.location.href = '/';
+  }
 }
 
 

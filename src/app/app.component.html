@@ -1,8 +1,8 @@
 <div class="app-wrapper">
   <header class="app-header">
     <div class="header-content">
-      <div class="header-left">
-        <i class="fas fa-hospital-user text-2xl"></i>
+      <div class="header-left" (click)="toggleSidebar()">
+        <i class="fas fa-hospital-user text-2xl cursor-pointer"></i>
         <h1>Gestion des Vouchers Santé</h1>
       </div>
       <div class="header-right">
@@ -19,7 +19,7 @@
   </header>
 
   <div class="app-shell">
-    <aside class="sidebar">
+    <aside class="sidebar" [class.sidebar-closed]="!sidebarOpen">
       <nav class="nav-menu">
         <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
           <i class="fas fa-chart-line"></i>
