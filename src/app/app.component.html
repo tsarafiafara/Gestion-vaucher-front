@@ -1,18 +1,48 @@
-<header class="app-header">
-  <h1>Gestion Voucher</h1>
-  <div class="spacer"></div>
-  <button class="logout-btn" (click)="logout()">Se déconnecter</button>
-</header>
+<div class="app-wrapper">
+  <header class="app-header">
+    <div class="header-content">
+      <div class="header-left">
+        <i class="fas fa-hospital-user text-2xl"></i>
+        <h1>Gestion des Vouchers Santé</h1>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <span class="user-name">Administrateur</span>
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <button class="logout-btn" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Déconnexion</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<div class="app-shell">
-  <aside class="sidebar">
-    <a routerLink="/dashboard">📊 Dashboard</a>
-    <a routerLink="/personne">👥 Personnes</a>
-    <a routerLink="/vouchers">🎟 Vouchers</a>
-  </aside>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <nav class="nav-menu">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a routerLink="/personne" routerLinkActive="active" class="nav-item">
+          <i class="fas fa-users"></i>
+          <span>Personnes</span>
+        </a>
+        <a routerLink="/etablissements" routerLinkActive="active" class="nav-item">
+          <i class="fas fa-hospital"></i>
+          <span>Établissements</span>
+        </a>
+        <a routerLink="/vouchers" routerLinkActive="active" class="nav-item">
+          <i class="fas fa-ticket-alt"></i>
+          <span>Vouchers</span>
+        </a>
+      </nav>
+    </aside>
 
-  <main class="content">
-    <router-outlet></router-outlet>
-  </main>
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
 
