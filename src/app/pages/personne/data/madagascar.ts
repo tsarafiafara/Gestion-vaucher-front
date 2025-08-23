@@ -1,114 +1,77 @@
-import { Component, OnInit } from '@angular/core';
-import { PersonneService } from './personne.service';
-import { Personne } from './personne.model';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import dataMada from './data/madagascar';
-import { Region, District } from './data/madagascar.types';
+import { DataMada } from './madagascar.types';
 
-@Component({
-  selector: 'app-personne',
-  standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule],
-  templateUrl: './personne.component.html',
-  styleUrl: './personne.component.css'
-})
-export class PersonneComponent implements OnInit {
-  personnes: Personne[] = [];
-  personneForm: Personne = {
-    nom: '',
-    prenom: '',
-    dateNaissance: '',
-    sexe: '',
-    etablissementSanitaireId: 0
-  };
-etablissements: any[] = [];
-  isEditMode = false; 
-
-etablissement: {
-  nom: string;
-  region: string;
-  district: string;
-  commune: string;
-  type: string;
-} = {
-  nom: '',
-  region: '',
-  district: '',
-  commune: '',
-  type: ''
-};
-  regions: Region[] = [];
-  selectedRegion: Region | null = null;
-  selectedDistrict: District | null = null;
-  selectedCommune: string = '';
-
-  
-  constructor(private personneService: PersonneService,private http:HttpClient) {
-  	this.loadRegions();
-  }
-
-  ngOnInit(): void {
-    this.loadPersonnes();
-    this.loadRegions();
-  }
-  
-loadRegions(): void {
-    this.regions = dataMada.regions;
-    console.log('Liste regions:', this.regions);
-  }
-
-  onRegionChange() {
-    this.selectedDistrict = null;
-    this.selectedCommune = '';
-  }
-
-  onDistrictChange() {
-    this.selectedCommune = '';
-  }
-  loadPersonnes(): void {
-    this.personneService.getAll().subscribe(data => this.personnes = data);
-  }
-  refresh(): void {
-   console.log(" 🔄 Bouton actualiser cliqué !");
-    this.loadPersonnes();
-  }
-
-  savePersonne(): void {
-    if (this.isEditMode && this.personneForm.id) {
-      this.personneService.update(this.personneForm.id, this.personneForm).subscribe(() => {
-        this.resetForm();
-        this.loadPersonnes();
-      });
-    } else {
-      this.personneService.create(this.personneForm).subscribe(() => {  
-       this.resetForm();
-       this.loadPersonnes();
-      });
-    }
-  }
-
-  editPersonne(p: Personne): void {
-    this.personneForm = { ...p };
-    this.isEditMode = true;
-  }
-
-  deletePersonne(id: number): void {
-    this.personneService.delete(id).subscribe(() => this.loadPersonnes());
-  }
-
-  resetForm(): void {
-    this.personneForm = {
-      nom: '',
-      prenom: '',
-      dateNaissance: '',
-      sexe: '',
-      etablissementSanitaireId: 0
-    };
-    this.isEditMode = false;
-  }
-}
+const dataMada: DataMada = {
+  pays: "Madagascar",
+  version: "2025-08",
+  regions: [
+    {
+      nom: "Analamanga",
+      districts: [
+        {
+          nom: "Antananarivo I",
+          communes: ["Analakely", "Isotry", "Mahamasina"]
+        },
+        {
+          nom: "Antananarivo II",
+          communes: ["Ambohidratrimo", "Ivato", "Talatamaty"]
+        },
+        {
+          nom: "Antananarivo Atsimondrano",
+          communes: ["Andoharanofotsy", "Anosizato", "Anosibe"]
+        },
+        {
+          nom: "Antananarivo Avaradrano",
+          communes: ["Anosibe", "Anosizato", "Andoharanofotsy"]
+        },
+        {
+          nom: "Anjozorobe",
+          communes: ["Anjozorobe", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Ambohidratrimo",
+          communes: ["Ambohidratrimo", "Andoharanofotsy", "Anosizato"]
+        },
+        {
+          nom: "Ankazobe",
+          communes: ["Ankazobe", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Andramasina",
+          communes: ["Andramasina", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Manjakandriana",
+          communes: ["Manjakandriana", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Bongolava",
+      "districts": [
+        {
+          nom: "Tsiroanomandidy",
+          communes: ["Tsiroanomandidy", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Fenoarivobe",
+          communes: ["Fenoarivobe", "Ambatolampy", "Antanifotsy"]
+        }
+      ]
+    },
+    {
+      nom: "Itasy",
+      "districts": [
+        {
+          nom: "Arivonimamo",
+          communes: ["Arivonimamo", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Miarinarivo",
+          communes: ["Miarinarivo", "Ambatolampy", "Antanifotsy"]
+        },
+        {
+          nom: "Soavinandriana",
+          communes: ["Soavinandriana", "Ambatolampy", "Antanifotsy"]
         }
       ]
     },
@@ -307,75 +270,5 @@ loadRegions(): void {
     }
   ]
 }
-  selectedRegion: any = null;
-  selectedDistrict: any = null;
-  selectedCommune: string = '';
 
-  
-  constructor(private personneService: PersonneService,private http:HttpClient) {
-  	this.loadRegions();
-  }
-
-  ngOnInit(): void {
-    this.loadPersonnes();
-    this.loadRegions();
-  }
-  
-loadRegions(): void {
-    this.http.get<any>('../../../assets/data/madagascar.json').subscribe(data => {
-      this.regions = data.regions;
-      console.log('LIste region:', data.regions)
-    });
-  }
-
-  onRegionChange() {
-    this.selectedDistrict = null;
-    this.selectedCommune = '';
-  }
-
-  onDistrictChange() {
-    this.selectedCommune = '';
-  }
-  loadPersonnes(): void {
-    this.personneService.getAll().subscribe(data => this.personnes = data);
-  }
-  refresh(): void {
-   console.log(" 🔄 Bouton actualiser cliqué !");
-    this.loadPersonnes();
-  }
-
-  savePersonne(): void {
-    if (this.isEditMode && this.personneForm.id) {
-      this.personneService.update(this.personneForm.id, this.personneForm).subscribe(() => {
-        this.resetForm();
-        this.loadPersonnes();
-      });
-    } else {
-      this.personneService.create(this.personneForm).subscribe(() => {  
-       this.resetForm();
-       this.loadPersonnes();
-      });
-    }
-  }
-
-  editPersonne(p: Personne): void {
-    this.personneForm = { ...p };
-    this.isEditMode = true;
-  }
-
-  deletePersonne(id: number): void {
-    this.personneService.delete(id).subscribe(() => this.loadPersonnes());
-  }
-
-  resetForm(): void {
-    this.personneForm = {
-      nom: '',
-      prenom: '',
-      dateNaissance: '',
-      sexe: '',
-      etablissementSanitaireId: 0
-    };
-    this.isEditMode = false;
-  }
-}
-
+export default dataMada;
