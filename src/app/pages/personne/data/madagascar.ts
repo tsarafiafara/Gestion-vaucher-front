@@ -5,269 +5,439 @@ const dataMada: DataMada = {
   version: "2025-08",
   regions: [
     {
+      nom: "Alaotra Mangoro",
+      districts: [
+        {
+          nom: "Ambatondrazaka",
+          communes: ["Ambatondrazaka", "Ambohitsilaozana", "Ampitatsimo", "Andilanatoby"]
+        },
+        {
+          nom: "Amparafaravola",
+          communes: ["Amparafaravola", "Ambohijanahary", "Andrebakely", "Bedidy"]
+        },
+        {
+          nom: "Andilamena",
+          communes: ["Andilamena", "Bemaitso", "Maroadabo"]
+        }
+      ]
+    },
+    {
+      nom: "Alaotra Mangoro",
+      districts: [
+        {
+          nom: "Ambatondrazaka",
+          communes: ["Ambatondrazaka", "Ambohitsilaozana", "Ampitatsimo", "Andilanatoby", "Bejofo"]
+        },
+        {
+          nom: "Amparafaravola",
+          communes: ["Amparafaravola", "Ambohijanahary", "Andrebakely", "Bedidy", "Morarano Chrome"]
+        },
+        {
+          nom: "Andilamena",
+          communes: ["Andilamena", "Bemaitso", "Maroadabo", "Tanambao Besakay"]
+        },
+        {
+          nom: "Anosibe An'ala",
+          communes: ["Anosibe An'ala", "Ambatoharanana", "Ampandroantraka", "Niarovana Caroline"]
+        }
+      ]
+    },
+    {
       nom: "Analamanga",
       districts: [
         {
-          nom: "Antananarivo I",
-          communes: ["Analakely", "Isotry", "Mahamasina"]
-        },
-        {
-          nom: "Antananarivo II",
-          communes: ["Ambohidratrimo", "Ivato", "Talatamaty"]
+          nom: "Antananarivo Renivohitra",
+          communes: ["1er Arrondissement", "2e Arrondissement", "3e Arrondissement", "4e Arrondissement", "5e Arrondissement", "6e Arrondissement"]
         },
         {
           nom: "Antananarivo Atsimondrano",
-          communes: ["Andoharanofotsy", "Anosizato", "Anosibe"]
+          communes: ["Ambalavao", "Ambohidrapeto", "Ampanefy", "Andramasina", "Anosizato Andrefana", "Fenoarivo", "Soavina"]
         },
         {
           nom: "Antananarivo Avaradrano",
-          communes: ["Anosibe", "Anosizato", "Andoharanofotsy"]
-        },
-        {
-          nom: "Anjozorobe",
-          communes: ["Anjozorobe", "Ambatolampy", "Antanifotsy"]
+          communes: ["Alasora", "Ambohimanambola", "Ambohimangakely", "Ambohimanga Rova", "Anjeva Gara", "Ankadikely Ilafy", "Sabotsy Namehana"]
         },
         {
           nom: "Ambohidratrimo",
-          communes: ["Ambohidratrimo", "Andoharanofotsy", "Anosizato"]
+          communes: ["Ambato", "Ambohidratrimo", "Ambohimanjaka", "Ambohitrimanjaka", "Ampangabe", "Anjanadoria", "Anosiala"]
         },
         {
           nom: "Ankazobe",
-          communes: ["Ankazobe", "Ambatolampy", "Antanifotsy"]
+          communes: ["Ambolotarakely", "Ankazobe", "Antotohazo", "Fiadanana", "Kiangara", "Talata Angavo"]
         },
         {
-          nom: "Andramasina",
-          communes: ["Andramasina", "Ambatolampy", "Antanifotsy"]
+          nom: "Anjozorobe",
+          communes: ["Alakamisy", "Ambatomanoina", "Anjozorobe", "Antanetibe", "Beronono"]
         },
         {
           nom: "Manjakandriana",
-          communes: ["Manjakandriana", "Ambatolampy", "Antanifotsy"]
-        }
-      ]
-    },
-    {
-      nom: "Bongolava",
-      "districts": [
-        {
-          nom: "Tsiroanomandidy",
-          communes: ["Tsiroanomandidy", "Ambatolampy", "Antanifotsy"]
-        },
-        {
-          nom: "Fenoarivobe",
-          communes: ["Fenoarivobe", "Ambatolampy", "Antanifotsy"]
-        }
-      ]
-    },
-    {
-      nom: "Itasy",
-      "districts": [
-        {
-          nom: "Arivonimamo",
-          communes: ["Arivonimamo", "Ambatolampy", "Antanifotsy"]
-        },
-        {
-          nom: "Miarinarivo",
-          communes: ["Miarinarivo", "Ambatolampy", "Antanifotsy"]
-        },
-        {
-          nom: "Soavinandriana",
-          communes: ["Soavinandriana", "Ambatolampy", "Antanifotsy"]
+          communes: ["Alarobia", "Ambatomanga", "Manjakandriana", "Mantasoa", "Merikanjaka"]
         }
       ]
     },
     {
       nom: "Vakinankaratra",
-      "districts": [
+      districts: [
         {
           nom: "Antsirabe I",
-          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+          communes: ["Antsirabe", "Antanambao", "Mahazoarivo", "Vatofotsy"]
         },
         {
           nom: "Antsirabe II",
-          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+          communes: ["Alakamisy", "Ambano", "Ambohibary", "Antanifotsy", "Belazao", "Manandona", "Soanindrariny", "Vinaninkarena"]
         },
         {
           nom: "Betafo",
-          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+          communes: ["Alakamisy Anativato", "Ambatonikolahy", "Betafo", "Mahaiza", "Mandritsara", "Soavina"]
         },
         {
           nom: "Faratsiho",
-          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+          communes: ["Antsampandrano", "Faratsiho", "Miandrarivo", "Ramainandro", "Vinaninony Sud"]
+        }
+      ]
+    },
+    {
+      nom: "Bongolava",
+      districts: [
+        {
+          nom: "Tsiroanomandidy",
+          communes: ["Ambatomainty", "Ankadinondry Sakay", "Belobaka", "Tsiroanomandidy", "Tsinjoarivo"]
         },
         {
-          nom: "Mandoto",
-          communes: ["Antsenakely", "Andraikiba", "Manandona"]
+          nom: "Fenoarivobe",
+          communes: ["Ambohitromby", "Fenoarivobe", "Firavahana", "Kiranomena", "Maritampona"]
         }
       ]
     },
     {
       nom: "Diana",
-      "districts": [
-        {
-          nom: "Ambanja",
-          communes: ["Ambanja", "Ambatolampy", "Antanifotsy"]
-        },
-        {
-          nom: "Ambilobe",
-          communes: ["Ambilobe", "Ambatolampy", "Antanifotsy"]
-        },
+      districts: [
         {
           nom: "Antsiranana I",
-          communes: ["Antsiranana", "Ambatolampy", "Antanifotsy"]
+          communes: ["Antsiranana", "Ramena", "Sakaramy"]
         },
         {
           nom: "Antsiranana II",
-          communes: ["Antsiranana", "Ambatolampy", "Antanifotsy"]
+          communes: ["Anivorano Nord", "Bobakilandy", "Joffreville", "Sadjoavato"]
+        },
+        {
+          nom: "Ambilobe",
+          communes: ["Ambilobe", "Antsaravibe", "Beramanja", "Mantaly"]
         },
         {
           nom: "Nosy Be",
-          communes: ["Nosy Be", "Ambatolampy", "Antanifotsy"]
+          communes: ["Hell-Ville", "Dzamandzar", "Ambatozavavy", "Ambatoloaka"]
         }
       ]
     },
     {
       nom: "Sava",
-      "districts": [
+      districts: [
         {
-          nom: "Andapa",
-          communes: ["Andapa", "Ambatolampy", "Antanifotsy"]
+          nom: "Sambava",
+          communes: ["Sambava", "Amboangibe", "Ambohimitsinjo", "Nosiarina"]
         },
         {
           nom: "Antalaha",
-          communes: ["Antalaha", "Ambatolampy", "Antanifotsy"]
-        },
-        {
-          nom: "Sambava",
-          communes: ["Sambava", "Ambatolampy", "Antanifotsy"]
+          communes: ["Antalaha", "Ampahana", "Ambohitralanana", "Cap Est"]
         },
         {
           nom: "Vohemar",
-          communes: ["Vohemar", "Ambatolampy", "Antanifotsy"]
+          communes: ["Vohemar", "Ambalabe", "Andrafainkona", "Nosibe"]
+        },
+        {
+          nom: "Andapa",
+          communes: ["Andapa", "Ambodiangezoka", "Ankiakabe Nord", "Bealampona"]
         }
       ]
     },
     {
-      nom: "Amoron'i Mania",
-      "districts": [
+      nom: "Atsinanana",
+      districts: [
         {
-          nom: "Ambatofinandrahana",
-          communes: ["Ambatofinandrahana", "Ambatolampy", "Antanifotsy"]
+          nom: "Toamasina I",
+          communes: ["Toamasina", "Ankirihiry", "Mangarivotra", "Morarano"]
         },
         {
-          nom: "Ambositra",
-          communes: ["Ambositra", "Ambatolampy", "Antanifotsy"]
+          nom: "Toamasina II",
+          communes: ["Ambodiriana", "Amboditandroroho", "Antetezambaro", "Fanandrana"]
         },
         {
-          nom: "Fandriana",
-          communes: ["Fandriana", "Ambatolampy", "Antanifotsy"]
+          nom: "Brickaville",
+          communes: ["Brickaville", "Ambalarondra", "Andekaleka", "Ranomafana Est"]
         },
         {
-          nom: "Manandriana",
-          communes: ["Manandriana", "Ambatolampy", "Antanifotsy"]
+          nom: "Vatomandry",
+          communes: ["Vatomandry", "Ambalamangahazo", "Ambodivoananto", "Ilaka Est"]
         }
       ]
     },
     {
       nom: "Haute Matsiatra",
-      "districts": [
+      districts: [
+        {
+          nom: "Fianarantsoa I",
+          communes: ["Fianarantsoa", "Andrainjato", "Isaha", "Tsaramandroso"]
+        },
+        {
+          nom: "Fianarantsoa II",
+          communes: ["Alakamisy Itenina", "Andoharanomaitso", "Iarintsena", "Sahambavy"]
+        },
         {
           nom: "Ambalavao",
-          communes: ["Ambalavao", "Ambatolampy", "Antanifotsy"]
+          communes: ["Ambalavao", "Ambinanindovoka", "Anjoma", "Kirano"]
         },
         {
           nom: "Ambohimahasoa",
-          communes: ["Ambohimahasoa", "Ambatolampy", "Antanifotsy"]
+          communes: ["Ambohimahasoa", "Ampitana", "Befeta", "Sahave"]
+        }
+      ]
+    },
+    {
+      nom: "Atsimo Andrefana",
+      districts: [
+        {
+          nom: "Toliara I",
+          communes: ["Toliara", "Besakoa", "Mitsinjo", "Tanambao"]
         },
         {
-          nom: "Fianarantsoa",
-          communes: ["Fianarantsoa", "Ambatolampy", "Antanifotsy"]
+          nom: "Toliara II",
+          communes: ["Andranovory", "Ankilimalinike", "Betsinjaka", "Saint Augustin"]
         },
         {
-          nom: "Isandra",
-          communes: ["Isandra", "Ambatolampy", "Antanifotsy"]
+          nom: "Morombe",
+          communes: ["Morombe", "Ambahikily", "Antanimeva", "Basibasy"]
         },
         {
-          nom: "Ikalamavony",
-          communes: ["Ikalamavony", "Ambatolampy", "Antanifotsy"]
+          nom: "Betioky Sud",
+          communes: ["Betioky", "Ambatry", "Bezaha", "Soamanonga"]
+        }
+      ]
+    },
+    {
+      nom: "Boeny",
+      districts: [
+        {
+          nom: "Mahajanga I",
+          communes: ["Mahajanga", "Amborovy", "Marovoay Banlieue", "Belobaka"]
         },
         {
-          nom: "Vohibato",
-          communes: ["Vohibato", "Ambatolampy", "Antanifotsy"]
+          nom: "Mahajanga II",
+          communes: ["Mariarano", "Mahajamba Usine", "Bekobay", "Ambalakida"]
         },
         {
-          nom: "Lalangina",
-          communes: ["Lalangina", "Ambatolampy", "Antanifotsy"]
+          nom: "Marovoay",
+          communes: ["Marovoay", "Ankazomborona", "Manaratsandry", "Antanambao Andranolava"]
+        }
+      ]
+    },
+    {
+      nom: "Sofia",
+      districts: [
+        {
+          nom: "Antsohihy",
+          communes: ["Antsohihy", "Anjalazala", "Ambodimandresy"]
+        },
+        {
+          nom: "Bealanana",
+          communes: ["Bealanana", "Ambatosia", "Mangindrano"]
+        },
+        {
+          nom: "Port-Bergé",
+          communes: ["Port-Bergé", "Tsarahasina", "Ambohipaky"]
+        }
+      ]
+    },
+    {
+      nom: "Melaky",
+      districts: [
+        {
+          nom: "Maintirano",
+          communes: ["Maintirano", "Ankatrafay", "Andabotoka"]
+        },
+        {
+          nom: "Besalampy",
+          communes: ["Besalampy", "Marovoay Sud", "Ampako"]
+        }
+      ]
+    },
+    {
+      nom: "Amoron'i Mania",
+      districts: [
+        {
+          nom: "Ambositra",
+          communes: ["Ambositra", "Ambohimahazo", "Andina"]
+        },
+        {
+          nom: "Fandriana",
+          communes: ["Fandriana", "Imito", "Sahamadio"]
         }
       ]
     },
     {
       nom: "Ihorombe",
-      "districts": [
-        {
-          nom: "Iakora",
-          communes: ["Iakora", "Ambatolampy", "Antanifotsy"]
-        },
+      districts: [
         {
           nom: "Ihosy",
-          communes: ["Ihosy", "Ambatolampy", "Antanifotsy"]
+          communes: ["Ihosy", "Analavoka", "Sakalalina"]
         },
         {
           nom: "Ivohibe",
-          communes: ["Ivohibe", "Ambatolampy", "Antanifotsy"]
+          communes: ["Ivohibe", "Maropaika", "Ivongo"]
         }
       ]
     },
     {
-      nom: "Vatovavy",
-      "districts": [
+      nom: "Menabe",
+      districts: [
         {
-          nom: "Ifanadiana",
-          communes: ["Ifanadiana", "Ambatolampy", "Antanifotsy"]
+          nom: "Morondava",
+          communes: ["Morondava", "Bemanonga", "Analaiva"]
+        },
+        {
+          nom: "Mahabo",
+          communes: ["Mahabo", "Ankilizato", "Malaimbandy"]
+        },
+        {
+          nom: "Manja",
+          communes: ["Manja", "Anontsibe Centre", "Mandabe"]
         }
       ]
     },
     {
-      nom: "Fitovinany",
-      "districts": [
+      nom: "Androy",
+      districts: [
         {
-          nom: "Ikongo",
-          communes: ["Ikongo", "Ambatolampy", "Antanifotsy"]
+          nom: "Ambovombe",
+          communes: ["Ambovombe", "Erada", "Sihanamaro"]
         },
         {
-          nom: "Manakara",
-          communes: ["Manakara", "Ambatolampy", "Antanifotsy"]
+          nom: "Bekily",
+          communes: ["Bekily", "Antanimora", "Morafeno"]
         },
         {
-          nom: "Mananjary",
-          communes: ["Mananjary", "Ambatolampy", "Antanifotsy"]
-        },
-        {
-          nom: "Nosy Varika",
-          communes: ["Nosy Varika", "Ambatolampy", "Antanifotsy"]
-        },
-        {
-          nom: "Vohipeno",
-          communes: ["Vohipeno", "Ambatolampy", "Antanifotsy"]
+          nom: "Beloha",
+          communes: ["Beloha", "Tranovaho", "Kopoky"]
         }
       ]
     },
     {
       nom: "Anosy",
-      "districts": [
+      districts: [
+        {
+          nom: "Tolagnaro",
+          communes: ["Tolagnaro", "Ampasy Nahampoana", "Mandromondromotra"]
+        },
         {
           nom: "Amboasary Sud",
-          communes: ["Amboasary Sud", "Ambatolampy", "Antanifotsy"]
+          communes: ["Amboasary Sud", "Behara", "Ifotaka"]
         },
         {
           nom: "Betroka",
-          communes: ["Betroka", "Ambatolampy", "Antanifotsy"]
+          communes: ["Betroka", "Isoanala", "Naninora"]
+        }
+      ]
+    },
+    {
+      nom: "Atsimo Atsinanana",
+      districts: [
+        {
+          nom: "Farafangana",
+          communes: ["Farafangana", "Ambalavato", "Evato"]
         },
         {
-          nom: "Taolanaro",
-          communes: ["Taolanaro", "Ambatolampy", "Antanifotsy"]
+          nom: "Vangaindrano",
+          communes: ["Vangaindrano", "Ampasimalemy", "Vatanato"]
+        },
+        {
+          nom: "Midongy-Atsimo",
+          communes: ["Midongy-Atsimo", "Befotaka", "Maliorano"]
+        }
+      ]
+    },
+    {
+      nom: "Analanjirofo",
+      districts: [
+        {
+          nom: "Fenerive Est",
+          communes: ["Fenerive Est", "Ampasina Maningory", "Vohilengo"]
+        },
+        {
+          nom: "Soanierana Ivongo",
+          communes: ["Soanierana Ivongo", "Ambahoabe", "Antanifotsy"]
+        },
+        {
+          nom: "Vavatenina",
+          communes: ["Vavatenina", "Ambatoharanana", "Sahatavy"]
+        }
+      ]
+    },
+    {
+      nom: "Betsiboka",
+      districts: [
+        {
+          nom: "Maevatanana",
+          communes: ["Maevatanana", "Ambalanjanakomby", "Antanimbary"]
+        },
+        {
+          nom: "Kandreho",
+          communes: ["Kandreho", "Anjiajia", "Bekipay"]
+        }
+      ]
+    },
+    {
+      nom: "Itasy",
+      districts: [
+        {
+          nom: "Miarinarivo",
+          communes: ["Miarinarivo", "Analavory", "Soavinandriana"]
+        },
+        {
+          nom: "Arivonimamo",
+          communes: ["Arivonimamo", "Ambohitrambo", "Imerintsiatosika"]
+        }
+      ]
+    },
+    {
+      nom: "Matsiatra Ambony",
+      districts: [
+        {
+          nom: "Fianarantsoa I",
+          communes: ["Fianarantsoa", "Andrainjato", "Tsaranoro"]
+        },
+        {
+          nom: "Ambalavao",
+          communes: ["Ambalavao", "Sendrisoa", "Anjoma"]
+        }
+      ]
+    },
+    {
+      nom: "Vatovavy",
+      districts: [
+        {
+          nom: "Mananjary",
+          communes: ["Mananjary", "Antsenavolo", "Kianjavato"]
+        },
+        {
+          nom: "Ifanadiana",
+          communes: ["Ifanadiana", "Ranomafana", "Kelilalina"]
+        }
+      ]
+    },
+    {
+      nom: "Fitovinany",
+      districts: [
+        {
+          nom: "Manakara",
+          communes: ["Manakara", "Ambila", "Vohimasina"]
+        },
+        {
+          nom: "Vohipeno",
+          communes: ["Vohipeno", "Andemaka", "Ivato"]
         }
       ]
     }
   ]
 }
+
 export default dataMada;

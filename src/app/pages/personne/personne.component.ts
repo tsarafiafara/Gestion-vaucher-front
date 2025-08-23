@@ -56,10 +56,20 @@ export class PersonneComponent implements OnInit {
   onRegionChange(): void {
     this.selectedDistrict = null;
     this.selectedCommune = '';
+    console.log('Région sélectionnée:', this.selectedRegion);
   }
 
   onDistrictChange(): void {
     this.selectedCommune = '';
+    console.log('District sélectionné:', this.selectedDistrict);
+  }
+
+  getDistricts(): any[] {
+    return this.selectedRegion ? this.selectedRegion.districts : [];
+  }
+
+  getCommunes(): string[] {
+    return this.selectedDistrict ? this.selectedDistrict.communes : [];
   }
 
   loadPersonnes(): void {
