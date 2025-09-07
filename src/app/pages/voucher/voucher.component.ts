@@ -77,10 +77,18 @@ export class VoucherComponent implements OnInit {
 
   // Calcul du total
   calculerTotal(): number {
-    return this.voucherForm.medicaments.reduce(
-      (acc, med) => acc + med.quantite * med.prix,
-      0
-    );
+    return this.voucherForm.medicaments.reduce((total, med) => 
+      total + (med.quantite * med.prix), 0);
+  }
+
+  calculerTotalVoucher(voucher: any): number {
+    return voucher.medicaments.reduce((total: number, med: any) => 
+      total + (med.quantite * med.prix), 0);
+  }
+
+  getPersonneNom(id: number): string {
+    const personne = this.personnes.find(p => p.id === id);
+    return personne ? `${personne.nom} ${personne.prenom}` : 'Non défini';
   }
 
   // Enregistrer ou modifier

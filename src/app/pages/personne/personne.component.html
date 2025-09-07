@@ -140,7 +140,7 @@
               {{ p.sexe === 'M' ? 'Masculin' : 'Féminin' }}
             </span>
           </td>
-          <td>{{ p.etablissementSanitaireId }}</td>
+          <td>{{ getEtablissementNom(p.etablissementSanitaireId) }}</td>
           <td class="actions-cell">
             <button class="action-btn edit" (click)="editPersonne(p)" title="Modifier">
               <i class="fas fa-edit"></i>

@@ -45,3 +45,31 @@
   </div>
 </form>
 
+<!-- Tableau des vouchers -->
+<div class="table-container" style="margin-top: 2rem;">
+  <table class="voucher-table">
+    <thead>
+      <tr>
+        <th>Bénéficiaire</th>
+        <th>Date</th>
+        <th>Médicaments</th>
+        <th>Prix Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let voucher of vouchers">
+        <td>{{ getPersonneNom(voucher.personneId) }}</td>
+        <td>{{ voucher.dateVoucher | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <ul style="list-style: none; padding: 0;">
+            <li *ngFor="let med of voucher.medicaments">
+              {{ med.nom }} - {{ med.quantite }}x - {{ med.prix }} Ar
+            </li>
+          </ul>
+        </td>
+        <td>{{ calculerTotalVoucher(voucher) }} Ar</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -4,6 +4,19 @@
   font-family: Arial, sans-serif;
 }
 
+.nav-menu {
+  background-color: #27ae60;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+}
+
 h2 {
   text-align: center;
 }
@@ -143,22 +156,34 @@ h2 {
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.875rem;
+  color: #2c3e50;
+}
+
+.nav-menu {
+  background-color: #27ae60;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
   font-weight: 500;
 }
 
-.gender-badge.male {
-  background-color: #e3f2fd;
-  color: #1976d2;
+.nav-menu {
+  background-color: #27ae60;
+  padding: 1rem;
 }
 
-.gender-badge.female {
-  background-color: #fce4ec;
-  color: #c2185b;
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
 }
 
-.actions {
-  margin-bottom: 10px;
-}
+.actions {…}
 
 .actions button {
   padding: 6px 12px;

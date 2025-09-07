@@ -46,6 +46,7 @@ export class PersonneComponent implements OnInit {
   ngOnInit(): void {
     this.loadPersonnes();
     this.loadRegions();
+    this.loadEtablissements();
   }
 
   loadRegions(): void {
@@ -147,6 +148,23 @@ export class PersonneComponent implements OnInit {
       etablissementSanitaireId: 0
     };
     this.isEditMode = false;
+  }
+
+  getEtablissementNom(id: number): string {
+    const etablissement = this.etablissements.find(e => e.id === id);
+    return etablissement ? etablissement.nom : 'Non défini';
+  }
+
+  loadEtablissements(): void {
+    // Appelez votre service pour charger les établissements
+    this.http.get<any[]>('http://localhost:8080/api/etablissements').subscribe({
+      next: (data) => {
+        this.etablissements = data;
+      },
+      error: (error) => {
+        console.error('Erreur lors du chargement des établissements:', error);
+      }
+    });
   }
 }
 
